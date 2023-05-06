@@ -12,8 +12,6 @@ import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSettings } from '../appReducer';
 
-let ALL_SETTINGS = ['glitch', 'grid', 'cursor', 'timer', 'code']
-
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     '& .MuiToggleButtonGroup-grouped': {
         margin: theme.spacing(0.5),

@@ -55,22 +55,13 @@ export default function Navbar({ selected }) {
                     Home
                 </Button>
                 <Button
-                    key={'create-button'}
-                    onMouseEnter={() => handleMouseEnter('create')}
-                    onMouseLeave={handleMouseLeave}
-                    onClick={() => handleNavigate('/create')}
-                    disabled={selected === 'create'}
-                >
-                    Create
-                </Button>
-                <Button
-                    onMouseEnter={() => handleMouseEnter('about')}
+                    onMouseEnter={() => handleMouseEnter('glitch')}
                     onMouseLeave={handleMouseLeave}
                     key={'about-button'}
-                    onClick={() => handleNavigate('/about')}
+                    onClick={() => handleNavigate('/glitch')}
                     disabled={selected === 'about'}
                 >
-                    About
+                    Legacy
                 </Button>
                 <Button
                     onMouseEnter={() => handleMouseEnter('logout')}

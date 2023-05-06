@@ -9,7 +9,6 @@ import Timer from './components/Timer.js';
 import Mouse from './components/Mouse.js';
 import Grid from './components/Grid.js';
 import Login from './components/Login.js';
-import Create from './components/Create.js';
 import PrivateRoute from './components/PrivateRoute.js';
 import SettingToggleButtons from './components/SettingToggleButtons.js';
 import React from 'react';
@@ -27,9 +26,6 @@ function App() {
                     <Routes>
                         <Route exact path="/" element={<PrivateRoute />}>
                             <Route exact path="/" element={<Home />} />
-                        </Route>
-                        <Route exact path="/" element={<PrivateRoute />}>
-                            <Route exact path="/create" element={<Create />} />
                         </Route>
                         <Route exact path="/login" element={<Login />} />
                     </Routes>

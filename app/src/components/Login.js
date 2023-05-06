@@ -8,6 +8,7 @@ import {
     GoogleAuthProvider,
     getAdditionalUserInfo,
 } from 'firebase/auth';
+import GlitchSquiggly from 'react-glitch-effect/core/GlitchSquiggly';
 import { auth } from '../firebase';
 
 const provider = new GoogleAuthProvider();
@@ -70,12 +71,14 @@ export default function Login() {
 
     return (
         <div className="flexContainer">
-            <Typography variant="h4" sx={{ paddingTop: '16px' }}>
-                Welcome to
-            </Typography>
-            <Typography variant="h3" sx={{ paddingBottom: '16px' }}>
-                GlitchMe
-            </Typography>
+                        <GlitchSquiggly>
+                <Typography variant="h4" sx={{ paddingTop: '50px' }}>
+                    Welcome to
+                </Typography>
+                <Typography variant="h3" sx={{ paddingBottom: '16px' }}>
+                    GlitchMe
+                </Typography>
+                        </GlitchSquiggly>
             <div
                 className="buttonContainer"
                 onMouseEnter={handleMouseEnter}
