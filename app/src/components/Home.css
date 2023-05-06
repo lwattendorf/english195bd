@@ -1,0 +1,26 @@
+
+.button:hover {
+    background-color: red !important;
+ }
+.logout-button:hover {
+    background-color: red !important;
+ }
+.logout-buttonContainer {
+    position: 'absolute'!important;
+    top: '40px'!important;
+    left: '40px'!important;
+ }
+.flexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px
+}
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+}
