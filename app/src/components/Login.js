@@ -70,12 +70,15 @@ export default function Login() {
 
     return (
         <div className="flexContainer">
-                <Typography variant="h4" sx={{ paddingTop: '50px' }}>
-                    Welcome to
-                </Typography>
-                <Typography variant="h3" sx={{ paddingBottom: '16px' }}>
-                    GlitchMe
-                </Typography>
+            <Typography variant="h4" sx={{ paddingTop: '50px' }}>
+                Welcome to
+            </Typography>
+            <Typography variant="h3" >
+                GlitchMe
+            </Typography>
+            <Typography variant="subtitle1" sx={{ padding: '10px', paddingBottom: '50px' }}>
+                By Lauren Wattendorf for ENGLISH BD 195 Spring 2023
+            </Typography>
             <div
                 className="buttonContainer"
                 onMouseEnter={handleMouseEnter}

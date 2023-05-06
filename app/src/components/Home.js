@@ -48,6 +48,8 @@ export default function Home() {
             user.providerData.forEach((profile) => {
                 setProfilePic(profile.photoURL);
             }); //this will give you all the urls once there is user data
+        } else {
+            handleSignOut();
         }
     }, [settings, user, profilePic, auth]);
 
