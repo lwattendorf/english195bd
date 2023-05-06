@@ -1,7 +1,7 @@
 import './Home.css';
 import React from 'react';
 import { Button, Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
     signInWithPopup,
@@ -9,12 +9,14 @@ import {
     getAdditionalUserInfo,
 } from 'firebase/auth';
 import { auth } from '../firebase';
+import { setUserSignedIn } from '../appReducer';
 
 const provider = new GoogleAuthProvider();
 
 export default function Login() {
     const settings = useSelector((state) => state.app.settings);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [isHover, setIsHover] = React.useState(false);
     const [showLogs, setShowLogs] = React.useState(
@@ -47,6 +49,7 @@ export default function Login() {
                 console.log({ credential, user, token, other });
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
+                dispatch(setUserSignedIn(true));
                 navigate('/');
             })
             .catch((error) => {

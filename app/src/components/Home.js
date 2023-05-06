@@ -5,13 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserInfo from './UserInfo';
 import Navbar from './Navbar';
 import Tooltip from '@mui/material/Tooltip';
-import { setShowTooltip } from '../appReducer';
+import { setShowTooltip, setUserSignedIn } from '../appReducer';
 import { useAuth } from '../useAuth';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const settings = useSelector((state) => state.app.settings);
+    const userSignedIn = useSelector((state) => state.app.userSignedIn);
     const { user, auth } = useAuth();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -32,6 +33,7 @@ export default function Home() {
 
     const handleSignOut = () => {
         navigate('/login');
+        dispatch(setUserSignedIn(false));
         signOut(auth).then(() => {
             console.log('Signed out.')
         }).catch((error) => {
@@ -48,7 +50,7 @@ export default function Home() {
             user.providerData.forEach((profile) => {
                 setProfilePic(profile.photoURL);
             }); //this will give you all the urls once there is user data
-        } else {
+        } else if (!userSignedIn) {
             handleSignOut();
         }
     }, [settings, user, profilePic, auth]);
@@ -116,15 +118,6 @@ export default function Home() {
     ) : (
         <Typography noWrap variant="subtitle2">
             Logging you in...
-            <Button
-                size="large"
-                className="button"
-                variant="contained"
-                disableElevation
-                onClick={handleSignOut}
-            >
-                Logout
-            </Button>
         </Typography>
     );
 }

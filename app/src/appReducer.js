@@ -1,8 +1,10 @@
 const SET_SETTINGS = 'SET_SETTINGS';
+const SET_USER_SIGNED_IN = 'SET_USER_SIGNED_IN';
 const SET_SHOW_TOOLTIP = 'SET_SHOW_TOOLTIP';
 
 const initialState = {
     settings: ['cursor', 'timer'],
+    userSignedIn: false,
     nameHovered: false
 };
 
@@ -14,6 +16,11 @@ export const setSettings = (settings) => ({
 export const setShowTooltip = (showTooltip) => ({
     type: SET_SHOW_TOOLTIP,
     payload: showTooltip,
+});
+
+export const setUserSignedIn = (userSignedIn) => ({
+    type: SET_USER_SIGNED_IN,
+    payload: userSignedIn,
 });
 
 
@@ -31,6 +38,12 @@ export default function appReducer(state = initialState, action) {
             return {
                 ...state,
                 showTooltip: action.payload,
+            };
+        }
+        case SET_USER_SIGNED_IN: {
+            return {
+                ...state,
+                userSignedIn: action.payload,
             };
         }
         default:
